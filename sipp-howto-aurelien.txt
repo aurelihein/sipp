@@ -1,0 +1,31 @@
+SIPp is a free Open Source test tool / traffic generator for the SIP protocol
+
+
+http://sipp.sourceforge.net/
+
+
+
+
+Download :
+
+git clone https://github.com/SIPp/sipp
+
+Installation :
+
+sudo apt-get install libsctp-dev libpcap-dev
+
+cd to dir
+sh build.sh --with-pcap --with-sctp
+
+L'executable in directory
+
+
+launch with custom xml:
+Avec des traces d'erreur
+./sipp -sf xml/uac.xml -max_retrans 1 -l 1 -p 5060 -trace_err 192.168.48.147
+With pause in communication of 3000 milliseconds
+./sipp -sf xml/uac.xml -max_retrans 1 -l 1 -p 5060 -d 3000 192.168.48.147
+Just do one call :
+./sipp -sf xml/uac.xml -max_retrans 1 -l 1 -p 5060 -d 3000 -m 1 192.168.48.147
+Fix our IP
+./sipp -sf xml/uac.xml -max_retrans 1 -l 1 -p 5060 -d 3000 -m 1 -i 192.168.49.140 -aa 192.168.48.147
